@@ -1,0 +1,44 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: mongo
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - 27017:27017
+    networks:
+      - app-network
+
+  nodejs-server:
+    build:
+      context: ./inadimnode
+      dockerfile: Dockerfile
+    ports:
+      - "3033:3033"
+    container_name: inadimnode
+    volumes:
+      - ./nodejs:/usr/src/app/nodejs
+      - /usr/src/app/nodejs/node_modules
+    networks:
+      - app-network
+    links:
+      - mongo
+
+  reactapp:
+    build:
+      context: ./inadim
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: reactinadim
+    volumes:
+      - ./react:/usr/src/app/react
+      - /usr/src/app/react/node_modules
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
