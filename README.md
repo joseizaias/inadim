@@ -19,9 +19,9 @@ Em seguida:
 
 -> execute os seguintes comandos em sequência e sempre aguardando o término do anterior:
 
-1o    **docker-compose   build   --no-cache**
+1o    **docker-compose     build     --no-cache**
 
-2o    **docker-compose  up  -d**
+2o    **docker-compose    up    -d**
 
 Após o término da execução dos comandos acima, teremos a aplicação em Reat JS levantada em:
 
