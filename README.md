@@ -25,7 +25,7 @@ Em seguida:
 
 Após o término da execução dos comandos acima, teremos a aplicação em Reat JS levantada em:
 
-=> http://localhost:3000
+=>  ***http://localhost:3000***
 
 O Back-end em Node JS, usará a porta: 3033
 
